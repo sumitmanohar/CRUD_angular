@@ -1,0 +1,99 @@
+<header>
+
+</header>
+
+
+<div class="container bg-color">
+  <div class="title text-center">
+  <span>User Details</span>
+  <hr>
+  </div>
+  <form #form='ngForm'>
+  <div class="row">
+     
+    <div class="col-md-4 col-12">
+      
+        <div class="form-group">
+         <input type="text" class="form-control" name='firstname' [(ngModel)]='firstname' #sumit="ngModel" id="firstname" placeholder="First name" required>
+         <div [hidden]='sumit.valid' class="red">First name cannot be empty</div>  
+        </div>
+          <div class="form-group">
+             
+        <input type="text" class="form-control" name='lastname'  [(ngModel)]='lastname'#manohar='ngModel' id="lastname"  placeholder="Last name" required>
+        <div [hidden]='manohar.valid' class="red">Last name cannot be empty</div>           
+          </div>
+    </div>
+    <div class="col-md-4 col-12">
+        <div class="form-group">
+         
+        <input type="text" class="form-control" name="mobilenumber" [(ngModel)]='mobilenumber' #contact="ngModel" id="mobilenumber"  placeholder="Contact Number" pattern="^[7-9]\d{9}$" required>
+        
+         
+               <div  *ngIf="contact.errors && contact.errors.required">
+                 <div class="red">Contact number cannot be empty</div>
+              </div>
+              <div  *ngIf="contact.errors && contact.errors.pattern">
+                <div class="red"> Contact number is invalid</div>  
+              </div>
+        
+          </div>
+           <div class="form-group">
+              
+              <input type="email" class="form-control" name="email" [(ngModel)]='email'#contactemail="ngModel" id="exampleInputEmail1"  placeholder="Email ID"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              <div  *ngIf="contactemail.errors && contactemail.errors.pattern" class="red">
+                  Email is invalid
+              </div>   
+                       </div>
+          
+    </div>
+    <div class="col-md-4 col-12">
+        <div class="form-group">
+         
+          <textarea type="text" rows="3" class="form-control" name="address" [(ngModel)]='address' #area="ngModel" id="Address" placeholder="Address" required>
+          </textarea>
+          <div [hidden]='area.valid' class="red">Address cannot be empty</div> 
+        </div>
+    </div>
+  </div>
+  <div class="row center">
+   
+        <button type="submit" class="btn btn-primary"   (click)="OnSubmit()">Add</button>
+   
+  </div>
+  </form>
+</div>
+ 
+
+<div class="container padding0">
+  <div class="row text-center" >
+    <div class="col-12">
+      <table class="table table-active"  >
+          <thead>
+            <tr>
+            
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Contact Number</th>
+              <th scope="col">Email Id</th>
+              <th scope="col">Action</th>
+            
+            </tr>
+          </thead>
+          <tbody *ngFor='let x of allData;let i=index'>
+            <tr [ngClass]="{'bg-light':i%2==0}">
+             
+              <td class="text-capitalize">{{x.firstname}}</td>
+              <td class="text-capitalize">{{x.lastname}}</td>
+              <td>{{x.mobilenumber}}</td>
+              <td>{{x.email}}</td>
+              <td><i class="fas fa-pencil-alt" (click)="edit(i,x)"></i><i class="fas fa-trash-alt" (click)='remove(i)'></i></td>
+              
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  </div>
+</div>
+  
+
+ 

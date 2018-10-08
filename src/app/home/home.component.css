@@ -1,0 +1,123 @@
+.center{
+    display: flex;
+    justify-content: center;
+   
+}
+button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: bold;
+}
+
+header{
+    background-color: #3498db;
+    height: 60px;
+    margin-bottom: 10px;
+}
+.title span{
+   font-size: 20px;
+   font-family: 'Patua One', cursive;
+}
+.container{
+    padding-top: 15px;
+    padding-bottom: 25px;
+    border: 1px solid #dfe6e9;
+}
+
+.ng-valid[required], .ng-valid.required   {
+    border-left: 5px solid #42A948; 
+   
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; 
+    
+  }
+  
+  .red{
+      color: #d63031;
+      font-size: 13px;
+  }
+  .bg-color{
+      background-color: #f5f6fa;
+  }
+  td{
+    font-family: 'Crete Round', serif;
+
+  }
+  .fa-pencil-alt {
+    padding-right:30px; 
+}
+  @media screen and (max-width:768px){
+    .padding0{
+        padding: 0;
+    }
+    table{
+        font-size:13px;
+    }
+    .fa-pencil-alt {
+        padding-right:10px; 
+    }
+    
+  }
+  /*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+    @media only screen and (max-width: 380px), (min-device-width: 381px) 
+  and (max-device-width: 600px)  {
+
+      /* Force table to not be like tables anymore */
+      table, thead, tbody, th, td, tr {
+          display: block;
+      }
+
+      /* Hide table headers (but not display: none;, for accessibility) */
+      thead tr {
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+      }
+
+  tr {
+    margin: 0 0 1rem 0;
+  }
+    
+  tr:nth-child(odd) {
+    background:#bdc3c7;
+  }
+  .fa-pencil-alt {
+    padding-right:40px; 
+}
+      td {
+          /* Behave  like a "row" */
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 50%;
+      }
+
+      td:before {
+          /* Now like a table header */
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 0;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+          height: 40px;
+      }
+
+      /*
+      Label the data
+  You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+      */
+      td:nth-of-type(1):before { content: "First Name";display: flex;justify-content: center;align-items: center; }
+      td:nth-of-type(2):before { content: "Last Name";display: flex;justify-content: center;align-items: center; }
+      td:nth-of-type(3):before { content: "Contact Number";display: flex;justify-content: center;align-items: center; }
+      td:nth-of-type(4):before { content: "Email Id";display: flex;justify-content: center;align-items: center; }
+      td:nth-of-type(5):before { content: "Action";display: flex;justify-content: center;align-items: center; }
+     
+  }
